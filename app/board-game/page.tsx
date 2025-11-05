@@ -81,8 +81,8 @@ export default function BoardGame() {
   }
 
   const addPiece = async () => {
-    if (role !== "teacher") {
-      alert("교사만 말을 추가할 수 있습니다.")
+    if (role !== "minjae") {
+      alert("관리자만 말을 추가할 수 있습니다.")
       return
     }
     const id = `piece-${Date.now()}`
@@ -98,8 +98,8 @@ export default function BoardGame() {
   }
 
   const deletePiece = async (id: string) => {
-    if (role !== "teacher") {
-      alert("교사만 말을 삭제할 수 있습니다.")
+    if (role !== "minjae") {
+      alert("관리자만 말을 삭제할 수 있습니다.")
       return
     }
     await remove(ref(db, `pieces/${id}`))
