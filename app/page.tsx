@@ -12,6 +12,9 @@ export default function HomePage() {
     if (inputValue.trim().toLowerCase() === "teacher") {
       Cookies.set("role", "teacher", { expires: 7 }) // 7일 유지
       router.push("/board-game")
+    } else if (inputValue.trim().toLowerCase() === "minjae") {
+      Cookies.set("role", "minjae", { expires: 7 }) // 7일 유지
+      router.push("/board-game")
     } else {
       router.push("/board-game")
     }
