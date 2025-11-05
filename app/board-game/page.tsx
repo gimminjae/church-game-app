@@ -106,7 +106,7 @@ export default function BoardGame() {
   }
 
   const handleDragEnd = async (id: string, x: number, y: number) => {
-    if (role !== "teacher") return
+    if (!["teacher", "minjae"].includes(role)) return
     await update(ref(db, `pieces/${id}`), { x, y })
   }
 
@@ -183,12 +183,12 @@ export default function BoardGame() {
               key={p.id}
               x={p.x}
               y={p.y}
-              draggable={role === "teacher"}
+              draggable={role === "teacher" || role === "minjae"}
               onDragEnd={(e: any) =>
                 handleDragEnd(p.id, e.currentTarget.x(), e.currentTarget.y())
               }
               onDblClick={() => {
-                if (role === "teacher") deletePiece(p.id)
+                if (role === "minjae") deletePiece(p.id)
               }}
             >
               <Circle
