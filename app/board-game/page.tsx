@@ -18,7 +18,7 @@ interface Piece {
 export default function BoardGame() {
   const [boardImage] = useImage("/board.png")
   const [pieces, setPieces] = useState<Piece[]>([])
-  const [role, setRole] = useState<string | null>(null)
+  const [role, setRole] = useState<string>("")
   const [stageSize, setStageSize] = useState({ width: 900, height: 700 })
   const [scale, setScale] = useState(1)
 
